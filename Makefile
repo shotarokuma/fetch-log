@@ -19,4 +19,4 @@ ${MY_USERID}: ${MY_USERID}.c
 
 
 clean:
-	-rm -f  $(TARGET) *.dmagit
+	-rm -f  $(TARGET) *.dmagit *.txt
