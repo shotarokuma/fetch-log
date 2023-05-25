@@ -4,7 +4,7 @@
 const char SHELL_PATH[] = "/etc/shells";
 const int BUF = 256;
 
-void addShells(char line[], char res[BUF][BUF], int* curr)
+void addShells(char line[], char res[BUF][BUF], int *curr)
 {
    for (int i = 0; i < *curr; i++)
    {
@@ -38,7 +38,7 @@ void getShell(char line[])
 
 void readShells()
 {
-   FILE* shells = fopen(SHELL_PATH, "r");
+   FILE *shells = fopen(SHELL_PATH, "r");
    char line[BUF];
    char res[BUF][BUF];
    int curr = 0;
