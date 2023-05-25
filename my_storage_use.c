@@ -26,7 +26,7 @@ int getCapacity(char line[])
 void avgUse()
 {
    FILE *output = fopen("a.txt", "r");
-   char * line = NULL;
+   char *line = NULL;
    size_t len = 0;
    int curr = 0;
    int currSum = 0;
@@ -34,15 +34,43 @@ void avgUse()
    {
       while ((getline(&line, &len, output)) != -1)
       {
-         if(curr > 0){
+         if (curr > 0)
+         {
             currSum += getCapacity(line);
          }
          curr += 1;
       }
       fclose(output);
    }
-   double res = currSum / curr;
-   printf("%.2ft", res);
+   double res = currSum / (double)curr;
+   printf("%.2f\n", res);
+}
+
+void extractData(char line[])
+{
+   char fixedData[BUF] = "";
+   char filesystem[BUF];
+   char size[BUF];
+   char used[BUF];
+   char avail[BUF];
+   char use[BUF];
+   char mounted_on[BUF];
+   if(sscanf(line, "%s %s %s %s %s %*s %*s %*s %s", filesystem, size, used, avail, use, mounted_on) == 6) 
+   {
+      strcat(fixedData, filesystem);
+      strcat(fixedData, " ");
+      strcat(fixedData, size);
+      strcat(fixedData, " ");
+      strcat(fixedData, used);
+      strcat(fixedData, " ");
+      strcat(fixedData, avail);
+      strcat(fixedData, " ");
+      strcat(fixedData, use);
+      strcat(fixedData, " ");
+      strcat(fixedData, mounted_on);
+      strcpy(line, fixedData);
+      strcat(line, "\n");
+   }
 }
 
 void getStorageData()
@@ -54,6 +82,7 @@ void getStorageData()
    {
       while (fgets(line, BUF, file))
       {
+         extractData(line);
          fprintf(output, "%s", line);
       }
       fclose(output);
