@@ -3,6 +3,7 @@
 #include <string.h>
 const int BUF = 256;
 
+// read data and convert int type data
 int getCapacity(char line[])
 {
    int i = 0;
@@ -23,6 +24,7 @@ int getCapacity(char line[])
    return res;
 }
 
+//caluclation of average
 void avgUse()
 {
    FILE *output = fopen("a.txt", "r");
@@ -46,6 +48,7 @@ void avgUse()
    printf("%.2f\n", res);
 }
 
+// modify data for output
 void extractData(char line[])
 {
    char fixedData[BUF] = "";
@@ -73,6 +76,7 @@ void extractData(char line[])
    }
 }
 
+// fetch data of storage and write data on text file 
 void getStorageData()
 {
    char line[BUF];
@@ -90,6 +94,7 @@ void getStorageData()
    }
 }
 
+// main function
 int main()
 {
    getStorageData();

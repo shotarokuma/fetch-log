@@ -4,6 +4,7 @@
 const char SHELL_PATH[] = "/etc/shells";
 const int BUF = 256;
 
+// check valid shells(not duplicate shell command)
 void addShells(char line[], char res[BUF][BUF], int *curr)
 {
    for (int i = 0; i < *curr; i++)
@@ -17,6 +18,7 @@ void addShells(char line[], char res[BUF][BUF], int *curr)
    (*curr)++;
 }
 
+// modify data for output
 void getShell(char line[])
 {
    for (int i = strlen(line) - 1; i > 0; i--)
@@ -36,6 +38,7 @@ void getShell(char line[])
    line[0] = '\0';
 }
 
+// fetch shells data
 void readShells()
 {
    FILE *shells = fopen(SHELL_PATH, "r");
@@ -57,6 +60,7 @@ void readShells()
    }
 }
 
+// main function
 int main()
 {
    readShells();

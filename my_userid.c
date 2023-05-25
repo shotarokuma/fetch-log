@@ -4,12 +4,15 @@
 const int MAX_INPUT = 100;
 const int BUF = 256;
 
+// prompt of input 
 void getInput(char uname[])
 {
   printf("Enter user name :");
   scanf("%s", uname);
 }
 
+// fetch userId data
+// invalid input throws errors
 void getUserId(char uname[])
 {
   char res[BUF];
@@ -36,6 +39,8 @@ void getUserId(char uname[])
     pclose(file);
   }
 }
+
+// main function
 int main()
 {
   char uname[MAX_INPUT] = "";
