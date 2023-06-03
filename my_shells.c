@@ -42,8 +42,8 @@ void getShell(char line[])
 void readShells()
 {
    FILE *shells = fopen(SHELL_PATH, "r");
-   char line[BUF]  = { '\0' };
-   char res[BUF][BUF]  = { { '\0' } };
+   char line[BUF];
+   char res[BUF][BUF];
    int curr = 0;
    if (shells)
    {
