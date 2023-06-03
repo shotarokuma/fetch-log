@@ -51,7 +51,7 @@ void avgUse()
 // modify data for output
 void extractData(char line[])
 {
-   char fixedData[BUF] = "";
+   char fixedData[BUF];
    char filesystem[BUF];
    char size[BUF];
    char used[BUF];

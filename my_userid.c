@@ -16,8 +16,8 @@ void getInput(char uname[])
 void getUserId(char uname[])
 {
   char res[BUF];
-  char command[MAX_INPUT] = "id -u ";
-  res[0] = '\0';
+  char command[MAX_INPUT];
+  strcpy(command, "id -u ");
   strcat(command, uname);
   strcat(command, " 2>&1");
 
@@ -44,7 +44,7 @@ void getUserId(char uname[])
 // main function
 int main()
 {
-  char uname[MAX_INPUT] = "";
+  char uname[MAX_INPUT];
   getInput(uname);
   getUserId(uname);
   return 0;
