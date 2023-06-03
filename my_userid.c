@@ -15,7 +15,7 @@ void getInput(char uname[])
 // invalid input throws errors
 void getUserId(char uname[])
 {
-  char res[BUF];
+  char res[BUF] = { '\0' };
   char command[MAX_INPUT] = "id -u ";
   strcat(command, uname);
   strcat(command, " 2>&1");
@@ -43,7 +43,7 @@ void getUserId(char uname[])
 // main function
 int main()
 {
-  char uname[MAX_INPUT] = "";
+  char uname[MAX_INPUT] =  { '\0' };;
   getInput(uname);
   getUserId(uname);
   return 0;

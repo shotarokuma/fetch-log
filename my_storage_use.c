@@ -51,13 +51,13 @@ void avgUse()
 // modify data for output
 void extractData(char line[])
 {
-   char fixedData[BUF] = "";
-   char filesystem[BUF];
-   char size[BUF];
-   char used[BUF];
-   char avail[BUF];
-   char use[BUF];
-   char mounted_on[BUF];
+   char fixedData[BUF]  = { '\0' };
+   char filesystem[BUF]  = { '\0' };
+   char size[BUF]  = { '\0' };
+   char used[BUF]  = { '\0' };
+   char avail[BUF]  = { '\0' };
+   char use[BUF]  = { '\0' };
+   char mounted_on[BUF]  = { '\0' };
    if(sscanf(line, "%s %s %s %s %s %*s %*s %*s %s", filesystem, size, used, avail, use, mounted_on) == 6) 
    {
       strcat(fixedData, filesystem);
