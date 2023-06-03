@@ -58,6 +58,13 @@ void extractData(char line[])
    char avail[BUF];
    char use[BUF];
    char mounted_on[BUF];
+   fixedData[0] = '\0';
+   filesystem[0] = '\0';
+   size[0] = '\0';
+   used[0] = '\0';
+   avail[0] = '\0';
+   use[0] = '\0';
+   mounted_on[0] = '\0';
    if(sscanf(line, "%s %s %s %s %s %*s %*s %*s %s", filesystem, size, used, avail, use, mounted_on) == 6) 
    {
       strcat(fixedData, filesystem);
@@ -80,6 +87,7 @@ void extractData(char line[])
 void getStorageData()
 {
    char line[BUF];
+   line[0]  = '\0';
    FILE *file = popen("df -h", "r");
    FILE *output = fopen("a.txt", "w");
    if (file && output)

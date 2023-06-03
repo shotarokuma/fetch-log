@@ -17,6 +17,7 @@ void getUserId(char uname[])
 {
   char res[BUF];
   char command[MAX_INPUT] = "id -u ";
+  res[0] = '\0';
   strcat(command, uname);
   strcat(command, " 2>&1");
 

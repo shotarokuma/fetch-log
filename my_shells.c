@@ -26,6 +26,7 @@ void getShell(char line[])
       if (line[i] == '/')
       {
          char res[BUF];
+         res[0] = '\0';
          for (int j = i + 1; j < strlen(line); j++)
          {
             res[j - (i + 1)] = line[j];
@@ -45,6 +46,14 @@ void readShells()
    char line[BUF];
    char res[BUF][BUF];
    int curr = 0;
+   line[0] = '\0';
+   for (int i = 0; i < BUF; i++)
+   {
+      for (int j = 0; j < BUF; j++)
+      {
+         res[i][j] = '\0';
+      }
+   }
    if (shells)
    {
       while (fgets(line, sizeof(line), shells))
